@@ -1,0 +1,96 @@
+pl:
+  application_name: " Aplikacja księgowa"
+  decimal_separator: ","
+  sum: Suma
+
+  save: Zapisz
+  cancel: Anuluj
+  submit: Zatwierdź
+  demo: Wersja demo
+
+  will_paginate:
+    previous_label: "&#8592; Poprzednia"
+    next_label: "Następna &#8594;"
+    page_gap: "&hellip;"
+
+  welcome:
+    web_title: Aplikacja księgowa
+
+  configurations:
+    index: Konfiguracje
+    date_from: Data od
+    date_to: Data do 
+    add_configuration: Dodaj konfigurację
+    base: Podstawa wymiaru
+    health_base: Podstawa wymiaru zdrowotnego
+    income_tax_threshold: Kwota wolna od podatku
+    retirement_percent: "% składki emerytalnej"
+    disability_percent: "% składki rentowej"
+    accidental_percent: "% składki wypadkowej"
+    illness_percent: "% składki chorobowej"
+    fp_percent: "% składki na Fundusz Pracy"
+    health_percent: "% składki zdrowotnej"
+    health_deduction_percent: "% składki zdrowotnej do odliczenia"
+    first_tax_rate: "Pierwszy próg dochodowy"
+    second_tax_rate: "Drugi próg dochodowy"
+    second_tax_amount: "Kwota drugiego progu"
+
+  user:
+    registration: Rejestracja
+    registration_submit: Zarejestruj
+    login: Logowanie
+    login_submit: Zaloguj
+    logout: Wyloguj
+    edit: Edycja użytkownika
+    email: E-mail
+    password: Hasło
+    password_confirmation: Potwierdzenie hasła
+    current_password: Obecne hasło
+    delete_account: Usuń konto
+    minimum_password_length: "minimum %{minimum_password_length} znaków"
+    submit: Zatwierdź
+    default_categories:
+      expenses: "Inny wydatek;Żywność i chemia domowa;Dom;Paliwo;Przejazdy;Serwis i części;Dzieci;Edukacja;Elektronika;Multimedia i książki;Odzież i obuwie;Prezenty i wsparcie;Zdrowie i uroda;Płatności;Podróże i wyjazdy;"
+      incomings: "Inny przychód;Wynagrodzenie;Premia"
+    reset_password:
+      first: Witaj
+      second: Ktoś zawnioskował o zmianę hasła. Możesz to zrobić klikając w link poniżej.
+      third: Zmień moje hasło
+      forth: Jeżeli to nie ty, proszę zignoruj tego maila.
+      fifth: Twoje hasło się nie zmieni dopóki nie klikniesz w link powyżej i nie stworzysz nowego.
+    forgot_your_password: Zapomniałeś hasła?
+    send_reset_instruction: Wyślij instrukcję resetowania hasła  
+    change_password: Zmień moje hasło
+
+  calendar: 
+    index: Kalendarz
+  
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+
+  date:
+    abbr_day_names:
+      0: Niedziela
+      1: Poniedziałek
+      2: Wtorek
+      3: Środa 
+      4: Czwartek
+      5: Piątek
+      6: Sobota
+      
+    month_names: 
+      1: Styczeń
+      2: Luty
+      3: Marzec
+      4: Kwiecień
+      5: Maj
+      6: Czerwiec
+      7: Lipiec
+      8: Sierpień
+      9: Wrzesień
+      10: Październik
+      11: Listopad
+      12: Grudzień
+
+    

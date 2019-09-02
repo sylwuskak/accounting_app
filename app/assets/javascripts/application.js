@@ -12,5 +12,24 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+// require bootstrap
+//= require bootstrap/modal
+//= require bootstrap/dropdown
+//= require bootstrap/alert
+//= require bootstrap/collapse
+//= require bootstrap/affix
+// require slim
+//= require bootstrap-datepicker
+
+$(document).on('ready', function(){
+    $('.datepicker-months').datepicker({ 
+        format: "yyyy-mm",
+        viewMode: "months", 
+        minViewMode: "months",
+        language: locale
+    });
+})

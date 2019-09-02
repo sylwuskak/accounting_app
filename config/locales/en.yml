@@ -1,33 +1,33 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  submit: Submit
+  application_name: " Accounting app"
+  save: Save
+  cancel: Cancel
+
+  welcome: 
+    web_title: Accounting app
+
+  user:
+    registration: Registration
+    registration_submit: Submit
+    login: Login 
+    login_submit: Submit
+    logout: Logout
+    edit: Edit user
+    email: E-mail
+    password: Password
+    password_confirmation: Password confirmation
+    current_password: Current password
+    delete_account: Delete account
+    minimum_password_length: "%{minimum_password_length} characters minimum"
+    submit: Submit
+    reset_password:
+      first: Hello
+      second: Someone has requested a link to change your password. You can do this through the link below.
+      third: Change my password
+      forth: If you didn't request this, please ignore this email.
+      fifth: Your password won't change until you access the link above and create a new one.
+    forgot_your_password: Did you forget your password?
+    send_reset_instruction: Send reset instruction
+    change_password: Change my password

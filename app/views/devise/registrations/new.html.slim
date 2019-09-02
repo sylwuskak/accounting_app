@@ -1,0 +1,32 @@
+- resource.errors.messages.each do |name, msg|
+  .alert.alert-info.alert-dismissable
+      button type="button" class="close" data-dismiss="alert"
+        | &times;
+      = msg.join(', ')
+h2 = I18n.t('user.registration')
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  .panel.panel-default
+    .panel-body
+      .row
+        .col-md-12
+          .form-group
+            = f.label I18n.t('user.email')
+            = f.email_field :email, autofocus: true, class: 'form-control'
+      .row 
+        .col-md-12
+          .form-group
+            = f.label I18n.t('user.password')
+            = f.password_field :password, autocomplete: "off", class: 'form-control'
+            - if @minimum_password_length
+              em
+                = I18n.t('user.minimum_password_length', :minimum_password_length => @minimum_password_length)
+      .row 
+        .col-md-12
+          .form-group
+            = f.label I18n.t('user.password_confirmation')
+            = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+    .panel-footer
+      .row
+        .col-md-12
+          .pull-right  
+            button.btn.custom-btn type="submit" =I18n.t('user.registration_submit')

@@ -1,0 +1,30 @@
+nav.navbar.navbar-default.navbar-static-top role="navigation" 
+  .container-fluid
+    a.navbar-brand 
+      span.glyphicon.glyphicon-time
+      = I18n.t('application_name')
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        - if user_signed_in?
+          li= active_link_to I18n.t('configurations.index'), app_configurations_path
+          - unless current_user.email == 'demo@example.com'
+            li= active_link_to I18n.t('user.edit'), edit_user_registration_path
+          li= active_link_to I18n.t('user.logout'), destroy_user_session_path, method: :delete
+        - else
+          li= active_link_to I18n.t('user.registration'), new_user_registration_path
+          li= active_link_to I18n.t('user.login'), user_session_path
+      /ul.nav.navbar-nav.pull-right
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+            span.glyphicon.glyphicon-globe
+            span.caret
+          ul.dropdown-menu.dropdown-menu-right
+            li 
+              = link_to params.permit(:locale, :user_id).merge({:locale => :pl}), :wrap_tag => :li
+                span = image_tag("pl.jpg", :alt => "pl", style: "border: 1px solid black" )
+                span = " Polski"
+            li 
+              = link_to params.permit(:locale, :user_id).merge({:locale => :en}), :wrap_tag => :li
+                span = image_tag("en.jpg", :alt => "en", style: "border: 1px solid black")
+                span = " English"
+        
