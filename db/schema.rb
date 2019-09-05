@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_155420) do
+ActiveRecord::Schema.define(version: 2019_09_05_161949) do
 
   create_table "app_configurations", force: :cascade do |t|
     t.date "date_from"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2019_09_05_155420) do
     t.float "amount"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_contributions_on_user_id"
+  end
+
+  create_table "operations", force: :cascade do |t|
+    t.string "operation_type", null: false
+    t.float "amount"
+    t.text "description"
+    t.date "date"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_operations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :app_configurations, dependent: :destroy
   has_many :contributions, dependent: :destroy
+  has_many :operations, dependent: :destroy
 end

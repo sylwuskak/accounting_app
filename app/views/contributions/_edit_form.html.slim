@@ -13,7 +13,7 @@
             .col-md-6
               .form-group
                 = f.label :contribution_type, I18n.t('contributions.type')
-                = f.select :contribution_type, ['tax', 'civil'].map{|t| [I18n.t("contributions.#{t}"), t]}, {}, {class: 'form-control'}
+                = f.select :contribution_type, ['tax', 'civil', 'health'].map{|t| [I18n.t("contributions.#{t}"), t]}, {}, {class: 'form-control'}
           .row
             .col-md-6
               .form-group

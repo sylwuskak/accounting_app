@@ -42,8 +42,25 @@ pl:
     amount: Kwota
     add_contribution: Dodaj wpłatę
     tax: Podatek
-    civil: ZUS
-
+    civil: ZUS - społeczne
+    health: ZUS - zdrowotne
+  
+  operations: 
+    index: Operacje
+    amount: Kwota
+    date: Data
+    type: Typ
+    category: Kategoria
+    without_category: Bez kategorii
+    description: Opis
+    add_operation: Dodaj operację
+    add_expense: Dodaj wydatek
+    add_income: Dodaj przychód
+    edit_operation: Edycja operacji
+    delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
+    income: Przychód
+    cost: Koszt
+    
   user:
     registration: Rejestracja
     registration_submit: Zarejestruj

@@ -1,0 +1,38 @@
+.panel.panel-default.operation-panel
+  .panel-heading
+    = I18n.t('operations.index')
+    .btn-group.pull-right
+      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_operation" type="button"
+        span.glyphicon.glyphicon-plus
+        
+  .panel-body                
+    table.table.table-hover 
+      thead
+        tr
+          th width="8%" = I18n.t('operations.date')
+          th width="6%" = I18n.t('operations.type')
+          th width="8%" = I18n.t('operations.amount')
+          th width="50%" = I18n.t('operations.description') 
+          th width="6%"
+      tbody 
+        - @operations.each do |operation|
+          tr 
+            td
+              = operation.date
+            td 
+              = I18n.t("operations.#{operation.operation_type.downcase}") 
+            td 
+              = operation.amount
+            td 
+              = operation.description
+            td 
+              .btn-group.pull-right
+                button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#operation_edit_#{operation.id}"
+                  span.glyphicon.glyphicon-pencil
+                =link_to operation_path(operation), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('operations.delete_confirmation_message')}
+                  span.glyphicon.glyphicon-remove
+
+= render "add_operation"
+= render "add_operation"
+= render "edit_forms"
+

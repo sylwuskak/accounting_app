@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   resources :contributions, only: [:create, :index, :destroy, :update] do
   end
+
+  resources :operations, only: [:create, :index, :destroy, :update] do
+  end
 end
