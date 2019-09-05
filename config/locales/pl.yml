@@ -23,7 +23,7 @@ pl:
     add_configuration: Dodaj konfigurację
     base: Podstawa wymiaru
     health_base: Podstawa wymiaru zdrowotnego
-    income_tax_threshold: Kwota wolna od podatku
+    income_tax_threshold: Kwota zmniejszająca podatek
     retirement_percent: "% składki emerytalnej"
     disability_percent: "% składki rentowej"
     accidental_percent: "% składki wypadkowej"
@@ -34,6 +34,15 @@ pl:
     first_tax_rate: "Pierwszy próg dochodowy"
     second_tax_rate: "Drugi próg dochodowy"
     second_tax_amount: "Kwota drugiego progu"
+
+  contributions:
+    index: Wpłaty
+    type: Typ
+    date: Data
+    amount: Kwota
+    add_contribution: Dodaj wpłatę
+    tax: Podatek
+    civil: ZUS
 
   user:
     registration: Rejestracja

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_185659) do
+ActiveRecord::Schema.define(version: 2019_09_05_155420) do
 
   create_table "app_configurations", force: :cascade do |t|
     t.date "date_from"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 2019_08_28_185659) do
     t.float "second_tax_amount"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_app_configurations_on_user_id"
+  end
+
+  create_table "contributions", force: :cascade do |t|
+    t.string "contribution_type"
+    t.date "date"
+    t.float "amount"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_contributions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

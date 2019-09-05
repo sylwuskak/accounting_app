@@ -1,0 +1,34 @@
+.panel.panel-default
+  .panel-heading
+    = I18n.t('contributions.index')
+    .btn-group.pull-right
+      button.btn.btn-xs.custom-btn-lighter data-toggle="modal" data-target="#add_contribution" type="button"
+        span.glyphicon.glyphicon-plus
+  .panel-body
+    table.table.table-hover
+      thead
+        tr
+          th width="30%" = I18n.t('contributions.date') 
+          th width="30%" = I18n.t('contributions.type')
+          th width="30%" = I18n.t('contributions.amount')
+          th width="10%"
+      tbody 
+      - @contributions.each do |contribution|
+        tr 
+          td 
+            = contribution.date
+          td 
+            = t("contributions.#{contribution.contribution_type}")
+          td 
+            = contribution.amount
+          td 
+            .btn-group.pull-right
+              button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#contribution_edit_#{contribution.id}"
+                span.glyphicon.glyphicon-pencil
+              =link_to contribution_path(contribution), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('contributions.delete_confirmation_message')}
+                span.glyphicon.glyphicon-remove
+        
+= render "add_contribution"
+= render "edit_forms"
+
+

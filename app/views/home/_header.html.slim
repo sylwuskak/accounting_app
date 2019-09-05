@@ -7,6 +7,7 @@ nav.navbar.navbar-default.navbar-static-top role="navigation"
       ul.nav.navbar-nav
         - if user_signed_in?
           li= active_link_to I18n.t('configurations.index'), app_configurations_path
+          li= active_link_to I18n.t('contributions.index'), contributions_path
           - unless current_user.email == 'demo@example.com'
             li= active_link_to I18n.t('user.edit'), edit_user_registration_path
           li= active_link_to I18n.t('user.logout'), destroy_user_session_path, method: :delete
