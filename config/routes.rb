@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :operations, only: [:create, :index, :destroy, :update] do
   end
+
+  get 'income_tax', to: 'income_tax#get_income_tax', as: 'get_income_tax'
 end

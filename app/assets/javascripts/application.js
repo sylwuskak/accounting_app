@@ -24,8 +24,15 @@
 //= require bootstrap/affix
 // require slim
 //= require bootstrap-datepicker
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.pl.js
 
-$(document).on('ready', function(){
+$(document).on('turbolinks:load', function(){
+    $('.datepicker').datepicker({
+        format: "yyyy-mm-dd",
+        weekStart: 1,
+        language: locale
+    });
+
     $('.datepicker-months').datepicker({ 
         format: "yyyy-mm",
         viewMode: "months", 

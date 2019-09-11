@@ -23,7 +23,7 @@ pl:
     add_configuration: Dodaj konfigurację
     base: Podstawa wymiaru
     health_base: Podstawa wymiaru zdrowotnego
-    income_tax_threshold: Kwota zmniejszająca podatek
+    income_tax_threshold: Kwota wolna od podatku
     retirement_percent: "% składki emerytalnej"
     disability_percent: "% składki rentowej"
     accidental_percent: "% składki wypadkowej"
@@ -58,8 +58,24 @@ pl:
     add_income: Dodaj przychód
     edit_operation: Edycja operacji
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
-    income: Przychód
+    revenue: Przychód
     cost: Koszt
+
+  income_tax:
+    header: Podatek dochodowy
+    date: Data
+    income: Dochód 
+    revenue: Przychód
+    cost: Koszty
+    revenues_sum: Suma przychodu
+    costs_sum: Suma kosztów
+    civil_contributions: Składki na ubezpieczenie społeczne
+    tax_base: Podstawa opodatkowania
+    income_tax: Podatek dochodowy
+    advance: Zaliczka
+    income_tax_calculation: Obliczenie podatku
+    health_contributions_for_deduction_sum: Składka zdrowotna do odliczenia
+    tax_contributions_sum: Suma zaliczek
     
   user:
     registration: Rejestracja

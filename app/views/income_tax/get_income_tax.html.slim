@@ -1,0 +1,79 @@
+== render 'form' 
+
+- if @income_tax_calculation
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('income_tax.revenue')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.revenues_sum')
+                .col-md-6
+                  = @income_tax_calculation[:revenues_sum]
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('income_tax.cost')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.costs_sum')
+                .col-md-6
+                  = @income_tax_calculation[:costs_sum]
+
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('income_tax.income_tax_calculation')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.income')
+                .col-md-6
+                  = @income_tax_calculation[:income]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.civil_contributions')
+                .col-md-6
+                  = @income_tax_calculation[:civil_contributions_sum]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.tax_base')
+                .col-md-6
+                  = @income_tax_calculation[:tax_base]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.income_tax')
+                .col-md-6
+                  = @income_tax_calculation[:income_tax]
+            
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.health_contributions_for_deduction_sum')
+                .col-md-6
+                  = @income_tax_calculation[:health_contributions_for_deduction_sum]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.tax_contributions_sum')
+                .col-md-6
+                  = @income_tax_calculation[:tax_contributions_sum]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.advance')
+                .col-md-6
+                  = @income_tax_calculation[:advance]
