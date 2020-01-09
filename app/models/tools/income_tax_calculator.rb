@@ -24,7 +24,8 @@ class Tools::IncomeTaxCalculator
       (conf.health_deduction_percent * conf.health_base / 100)
     end.sum.round(2)
     tax_contributions_sum = @tax_contributions.map{|c| c.amount}.sum.round(2)
-    advance = (income_tax - health_contributions_for_deduction_sum - tax_contributions_sum - (@app_configurations.first.income_tax_threshold * @app_configurations.first.first_tax_rate / 100 ).round(2) ).round
+    income_tax_threshold_reduction = (@app_configurations.first.income_tax_threshold * @app_configurations.first.first_tax_rate / 100 ).round(2)
+    advance = (income_tax - health_contributions_for_deduction_sum - tax_contributions_sum - income_tax_threshold_reduction ).round
 
     {
         revenues_sum: revenues_sum,
@@ -35,6 +36,7 @@ class Tools::IncomeTaxCalculator
         income_tax: income_tax,
         health_contributions_for_deduction_sum: health_contributions_for_deduction_sum,
         tax_contributions_sum: tax_contributions_sum,
+        income_tax_threshold_reduction: income_tax_threshold_reduction,
         advance: advance
     }
   end

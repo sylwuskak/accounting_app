@@ -76,6 +76,7 @@ pl:
     income_tax_calculation: Obliczenie podatku
     health_contributions_for_deduction_sum: Składka zdrowotna do odliczenia
     tax_contributions_sum: Suma zaliczek
+    income_tax_threshold_reduction: Kwota zmniejszająca podatek
     
   user:
     registration: Rejestracja

@@ -2,7 +2,7 @@ class ContributionsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-      @contributions = current_user.contributions
+      @contributions = current_user.contributions.order(date: :desc)
     end
   
     def create

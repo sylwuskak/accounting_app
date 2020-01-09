@@ -74,6 +74,13 @@
             li.list-group-item
               .row
                 .col-md-6.title
+                  = I18n.t('income_tax.income_tax_threshold_reduction')
+                .col-md-6
+                  = @income_tax_calculation[:income_tax_threshold_reduction]
+                  
+            li.list-group-item
+              .row
+                .col-md-6.title
                   = I18n.t('income_tax.advance')
                 .col-md-6
                   = @income_tax_calculation[:advance]
