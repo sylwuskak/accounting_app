@@ -8,7 +8,7 @@ class Tools::IncomeTaxCalculator
     @civil_contributions = user.contributions.select{|c| c.contribution_type == "civil" && c.date >= @date.beginning_of_year && c.date <= @date}
     @health_contributions = user.contributions.select{|c| c.contribution_type == "health" && c.date >= @date.beginning_of_year && c.date <= @date}
     @tax_contributions = user.contributions.select{|c| c.contribution_type == "tax" && c.date >= @date.beginning_of_year && c.date <= @date}
-    @app_configurations = user.app_configurations.select{|c| c.date_from <= @date }
+    @app_configurations = user.app_configurations.order(date_from: :desc).select{|c| c.date_from <= @date }
   end
 
   def calculate_tax
