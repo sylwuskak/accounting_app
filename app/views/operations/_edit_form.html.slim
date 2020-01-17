@@ -7,23 +7,50 @@
         .modal-body
           .row
             .col-md-6
-                .form-group
-                  = f.label :date, I18n.t('operations.date')
-                  = f.text_field :date, class: 'form-control datepicker', data: {provide: 'datepicker'}
+              .form-group
+                = f.label :date, I18n.t('operations.date')
+                = f.text_field :date, class: 'form-control datepicker', data: {provide: 'datepicker'}, value: Date.today
             .col-md-6
-                .form-group
-                  = f.label :type, I18n.t('operations.type')
-                  = f.select :operation_type, ['cost', 'revenue'].map{|o| [I18n.t("operations.#{o}"), o]}, {}, {class: 'form-control'}
+              .form-group
+                = f.label :operation_type, I18n.t('operations.type')
+                = f.select :operation_type, [operation.operation_type.camelize].map{|o| [I18n.t("operations.#{o.downcase}"), o]}, {}, {class: 'form-control', disabled: 'true', value: operation.operation_type.camelize}
           .row
             .col-md-6
+              .form-group
+                = f.label :amount, I18n.t('operations.amount')
+                = f.text_field :amount, class: 'form-control'
+            - if operation.operation_type == 'cost'
+              .col-md-6
                 .form-group
-                  = f.label :amount, I18n.t('operations.amount')
-                  = f.text_field :amount, class: 'form-control'
+                  = f.label :other_cost_amount, I18n.t('operations.other_cost_amount')
+                  = f.text_field :other_cost_amount, class: 'form-control'
+          .row
+            .col-md-6
+              .form-group
+                = f.label :invoice_no, I18n.t('operations.invoice_no')
+                = f.text_field :invoice_no, class: 'form-control'
+            .col-md-6
+              .form-group
+                = f.label :operation_subtype, I18n.t('operations.operation_subtype')
+                - if operation.operation_type == 'revenue'
+                  - subtypes = ['col_7', 'col_8']
+                - else
+                  - subtypes = ['col_10', 'col_12', 'col_13', 'col_16']
+                = f.select :operation_subtype, subtypes.map{|o| [I18n.t("operations.#{o}"), o]}, {}, {class: 'form-control'}
+          .row
+            .col-md-6
+              .form-group
+                = f.label :contractor_name, I18n.t('operations.contractor_name')
+                = f.text_area :contractor_name, class: 'form-control'
+            .col-md-6
+              .form-group
+                = f.label :contractor_address, I18n.t('operations.contractor_address')
+                = f.text_area :contractor_address, class: 'form-control'
           .row
             .col-md-12
-                .form-group
-                  = f.label :description, I18n.t('operations.description')
-                  = f.text_area :description, class: 'form-control'
+              .form-group
+                = f.label :description, I18n.t('operations.description')
+                = f.text_area :description, class: 'form-control'
           
         .modal-footer
           button.btn.custom-btn type="submit" 

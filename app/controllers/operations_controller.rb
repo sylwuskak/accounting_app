@@ -24,7 +24,7 @@ class OperationsController < ApplicationController
   end
 
   def update
-    begin    
+    begin 
       @operation = Operation.find(params[:id])
       @operation.update!(operation_params)
     rescue => e
@@ -36,7 +36,7 @@ class OperationsController < ApplicationController
 
   private
   def operation_params
-    permit_params = params.require(:operation).permit(:date, :operation_type, :description, :amount, :category_id)
+    permit_params = params.require(:operation).permit(:date, :operation_type, :description, :amount, :invoice_no, :contractor_name, :contractor_address, :operation_subtype, :other_cost_amount)
     permit_params['amount'] = permit_params['amount'].gsub(',', '.').to_f.round(2).to_s
     permit_params
   end

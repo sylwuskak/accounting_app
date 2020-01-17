@@ -54,12 +54,23 @@ pl:
     without_category: Bez kategorii
     description: Opis
     add_operation: Dodaj operację
-    add_expense: Dodaj wydatek
-    add_income: Dodaj przychód
+    add_cost: Dodaj koszt
+    add_revenue: Dodaj przychód
     edit_operation: Edycja operacji
     delete_confirmation_message: Czy jesteś pewien, że chcesz usunąć operację?
     revenue: Przychód
     cost: Koszt
+    other_cost_amount: Koszty uboczne zakupu
+    invoice_no: Numer dowodu księgowego
+    contractor_name: Nazwa firmy
+    contractor_address: Adres firmy
+    operation_subtype: Podtyp operacji
+    col_7: 7 - Sprzedaż towarów i usług
+    col_8: 8 - Pozostały przychód
+    col_10: 10 - Zakup towarów handlowych i materiałów wg cen zakupów
+    col_12: 12 - Wynagrodzenia w gotówce i w naturze
+    col_13: 13 - Pozostałe wydatki
+    col_16: 16 - Koszty działalności badawczo-rozwojowej
 
   income_tax:
     header: Podatek dochodowy

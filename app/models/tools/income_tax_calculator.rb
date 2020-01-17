@@ -13,7 +13,7 @@ class Tools::IncomeTaxCalculator
 
   def calculate_tax
     revenues_sum = @revenues.map{|r| r.amount}.sum.round(2)
-    costs_sum = @costs.map{|c| c.amount}.sum.round(2)
+    costs_sum = @costs.map{|c| c.amount}.sum.round(2) + @costs.map{|c| c.other_cost_amount}.sum.round(2)
     income = revenues_sum - costs_sum
     civil_contributions_sum = @civil_contributions.map{|c| c.amount}.sum.round(2)
     tax_base = (income - civil_contributions_sum).round
