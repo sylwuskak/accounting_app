@@ -1,0 +1,68 @@
+== render 'form' 
+
+- if @operations
+  table.table.table-hover 
+    thead
+      tr
+        th width="3%" = I18n.t('kpir.col_1')
+        th width="6%" = I18n.t('kpir.col_2')
+        th width="8%" = I18n.t('kpir.col_3')
+        th width="10%" = I18n.t('kpir.col_4')
+        th width="14%" = I18n.t('kpir.col_5')
+        th width="14%" = I18n.t('kpir.col_6')
+        th width="5%" = I18n.t('kpir.col_7')
+        th width="3%" = I18n.t('kpir.col_8')
+        th width="5%" = I18n.t('kpir.col_9')
+        th width="5%" = I18n.t('kpir.col_10')
+        th width="5%" = I18n.t('kpir.col_11')
+        th width="3%" = I18n.t('kpir.col_12')
+        th width="5%" = I18n.t('kpir.col_13')
+        th width="5%" = I18n.t('kpir.col_14')
+        th width="3%" = I18n.t('kpir.col_15')
+        th width="3%" = I18n.t('kpir.col_16')
+        th width="3%" = I18n.t('kpir.col_17')
+    tbody 
+      - @operations.each_with_index do |operation, index|
+        tr 
+          td
+            = index + 1
+          td
+            = operation.date
+          td 
+            = operation.invoice_no
+          td 
+            = operation.contractor_name
+          td 
+            = operation.contractor_address
+          td 
+            = operation.description
+          td 
+            - if operation.operation_subtype == 'col_7' 
+              = operation.amount
+          td 
+            - if operation.operation_subtype == 'col_8' 
+              = operation.amount
+          td 
+            - if ['col_7', 'col_8'].include?(operation.operation_subtype)
+              = operation.amount
+          td 
+            - if operation.operation_subtype == 'col_10' 
+              = operation.amount
+          td 
+            - if operation.operation_subtype == 'col_10' 
+              = operation.other_cost_amount
+          td 
+            - if operation.operation_subtype == 'col_12' 
+              = operation.amount
+          td 
+            - if operation.operation_subtype == 'col_13' 
+              = operation.amount
+          td 
+            - if ['col_12', 'col_13'].include?(operation.operation_subtype)
+              = operation.amount
+          td 
+          td 
+            - if operation.operation_subtype == 'col_16' 
+              = operation.amount
+          td 
+           

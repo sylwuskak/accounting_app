@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
 
   get 'income_tax', to: 'income_tax#get_income_tax', as: 'get_income_tax'
+  get 'kpir', to: 'kpir#get_kpir', as: 'get_kpir'
 end

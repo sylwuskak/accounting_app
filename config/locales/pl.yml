@@ -88,6 +88,26 @@ pl:
     health_contributions_for_deduction_sum: Składka zdrowotna do odliczenia
     tax_contributions_sum: Suma zaliczek
     income_tax_threshold_reduction: Kwota zmniejszająca podatek
+
+  kpir:
+    header: KPiR
+    col_1: Kol 1
+    col_2: Kol 2
+    col_3: Kol 3
+    col_4: Kol 4
+    col_5: Kol 5
+    col_6: Kol 6
+    col_7: Kol 7
+    col_8: Kol 8
+    col_9: Kol 9
+    col_10: Kol 10
+    col_11: Kol 11
+    col_12: Kol 12
+    col_13: Kol 13
+    col_14: Kol 14
+    col_15: Kol 15
+    col_16: Kol 16
+    col_17: Kol 17
     
   user:
     registration: Rejestracja
