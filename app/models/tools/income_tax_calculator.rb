@@ -13,11 +13,11 @@ class Tools::IncomeTaxCalculator
 
   def calculate_tax
     revenues_sum = @revenues.map{|r| r.amount}.sum.round(2)
-    costs_sum = @costs.map{|c| c.amount}.sum.round(2) + @costs.map{|c| c.other_cost_amount}.sum.round(2)
+    costs_sum = @costs.map{|c| c.amount}.sum.round(2).to_f + @costs.map{|c| c.other_cost_amount}.sum.round(2).to_f
     income = revenues_sum - costs_sum
-    civil_contributions_sum = @civil_contributions.map{|c| c.amount}.sum.round(2)
+    civil_contributions_sum = @civil_contributions.map{|c| c.amount}.sum.round(2).to_f
     tax_base = (income - civil_contributions_sum).round
-    income_tax = (@app_configurations.first.first_tax_rate * tax_base / 100).round(2)
+    income_tax = (@app_configurations.first.first_tax_rate * tax_base / 100).round(2).to_f
     
     health_contributions_for_deduction_sum = @health_contributions.map do |hc| 
       conf = @app_configurations.select{|c| c.date_from <= hc.date && c.date_to >= hc.date }.first 
