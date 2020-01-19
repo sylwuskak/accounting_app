@@ -3,11 +3,11 @@ class Tools::IncomeTaxCalculator
   def initialize(date, user)
     date_params = date.split('-').map{|a| a.to_i}
     @date = Date.new(*date_params) - 1.day
-    @revenues = user.operations.select{|o| o.operation_type == "revenue" && o.date >= @date.beginning_of_year && o.date <= @date} 
-    @costs = user.operations.select{|o| o.operation_type == "cost" && o.date >= @date.beginning_of_year && o.date <= @date} 
-    @civil_contributions = user.contributions.select{|c| c.contribution_type == "civil" && c.date >= @date.beginning_of_year && c.date <= @date}
-    @health_contributions = user.contributions.select{|c| c.contribution_type == "health" && c.date >= @date.beginning_of_year && c.date <= @date}
-    @tax_contributions = user.contributions.select{|c| c.contribution_type == "tax" && c.date >= @date.beginning_of_year && c.date <= @date}
+    @revenues = user.operations.select{|o| o.operation_type.downcase == "revenue" && o.date >= @date.beginning_of_year && o.date <= @date} 
+    @costs = user.operations.select{|o| o.operation_type.downcase == "cost" && o.date >= @date.beginning_of_year && o.date <= @date} 
+    @civil_contributions = user.contributions.select{|c| c.contribution_type.downcase == "civil" && c.date >= @date.beginning_of_year && c.date <= @date}
+    @health_contributions = user.contributions.select{|c| c.contribution_type.downcase == "health" && c.date >= @date.beginning_of_year && c.date <= @date}
+    @tax_contributions = user.contributions.select{|c| c.contribution_type.downcase == "tax" && c.date >= @date.beginning_of_year && c.date <= @date}
     @app_configurations = user.app_configurations.order(date_from: :desc).select{|c| c.date_from <= @date }
   end
 
