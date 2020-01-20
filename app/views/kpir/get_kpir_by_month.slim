@@ -1,4 +1,4 @@
-== render 'form' 
+== render 'form_by_month' 
 
 - if @operations
   table.table.table-hover 
@@ -27,7 +27,7 @@
           td
             = index + 1
           td
-            gr_oper[:date]
+            = gr_oper[:date]
           td 
           td 
           td 
