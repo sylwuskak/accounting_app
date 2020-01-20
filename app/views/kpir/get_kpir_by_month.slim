@@ -1,0 +1,54 @@
+== render 'form' 
+
+- if @operations
+  table.table.table-hover 
+    thead
+      tr
+        th width="3%" = I18n.t('kpir.col_1')
+        th width="3%" = I18n.t('kpir.col_2')
+        th width="3%" = I18n.t('kpir.col_3')
+        th width="3%" = I18n.t('kpir.col_4')
+        th width="3%" = I18n.t('kpir.col_5')
+        th width="3%" = I18n.t('kpir.col_6')
+        th width="10%" = I18n.t('kpir.col_7')
+        th width="10%" = I18n.t('kpir.col_8')
+        th width="10%" = I18n.t('kpir.col_9')
+        th width="10%" = I18n.t('kpir.col_10')
+        th width="10%" = I18n.t('kpir.col_11')
+        th width="10%" = I18n.t('kpir.col_12')
+        th width="10%" = I18n.t('kpir.col_13')
+        th width="10%" = I18n.t('kpir.col_14')
+        th width="3%" = I18n.t('kpir.col_15')
+        th width="10%" = I18n.t('kpir.col_16')
+        th width="3%" = I18n.t('kpir.col_17')
+    tbody 
+      - @operations.each_with_index do |gr_oper, index|
+        tr 
+          td
+            = index + 1
+          td
+            gr_oper[:date]
+          td 
+          td 
+          td 
+          td 
+          td 
+            = gr_oper[:col_7]
+          td 
+            = gr_oper[:col_8]
+          td 
+            = gr_oper[:col_9]
+          td 
+            = gr_oper[:col_10]
+          td 
+            = gr_oper[:col_11]
+          td 
+            = gr_oper[:col_12]
+          td 
+            = gr_oper[:col_13]
+          td 
+            = gr_oper[:col_14]
+          td 
+          td 
+            = gr_oper[:col_16]
+          td 

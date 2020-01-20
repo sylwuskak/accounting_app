@@ -72,6 +72,7 @@ pl:
 
   kpir:
     header: KPiR
+    header_by_month: KPiR per miesiąc
     col_1: Kol 1
     col_2: Kol 2
     col_3: Kol 3

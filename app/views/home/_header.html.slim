@@ -10,6 +10,7 @@ nav.navbar.navbar-default.navbar-static-top role="navigation"
           li= active_link_to I18n.t('operations.index'), operations_path
           li= active_link_to I18n.t('income_tax.header'), get_income_tax_path
           li= active_link_to I18n.t('kpir.header'), get_kpir_path(date: Date.today.strftime("%Y"))
+          li= active_link_to I18n.t('kpir.header_by_month'), get_kpir_by_month_path(date: Date.today.strftime("%Y"))
           - unless current_user.email == 'demo@example.com'
             li= active_link_to I18n.t('user.edit'), edit_user_registration_path
           li= active_link_to I18n.t('user.logout'), destroy_user_session_path, method: :delete
