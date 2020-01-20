@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_081136) do
+ActiveRecord::Schema.define(version: 2020_01_20_093043) do
 
   create_table "app_configurations", force: :cascade do |t|
     t.date "date_from"
