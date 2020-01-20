@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_131329) do
+ActiveRecord::Schema.define(version: 2020_01_20_081136) do
 
   create_table "app_configurations", force: :cascade do |t|
     t.date "date_from"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_131329) do
     t.string "contractor_address"
     t.string "operation_subtype"
     t.float "other_cost_amount"
+    t.datetime "created_at", default: "2020-01-20 08:16:33", null: false
     t.index ["user_id"], name: "index_operations_on_user_id"
   end
 
