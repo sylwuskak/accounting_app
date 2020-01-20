@@ -16,25 +16,6 @@ pl:
   welcome:
     web_title: Aplikacja księgowa
 
-  configurations:
-    index: Konfiguracje
-    date_from: Data od
-    date_to: Data do 
-    add_configuration: Dodaj konfigurację
-    base: Podstawa wymiaru
-    health_base: Podstawa wymiaru zdrowotnego
-    income_tax_threshold: Kwota wolna od podatku
-    retirement_percent: "% składki emerytalnej"
-    disability_percent: "% składki rentowej"
-    accidental_percent: "% składki wypadkowej"
-    illness_percent: "% składki chorobowej"
-    fp_percent: "% składki na Fundusz Pracy"
-    health_percent: "% składki zdrowotnej"
-    health_deduction_percent: "% składki zdrowotnej do odliczenia"
-    first_tax_rate: "Pierwszy próg dochodowy"
-    second_tax_rate: "Drugi próg dochodowy"
-    second_tax_amount: "Kwota drugiego progu"
-
   contributions:
     index: Wpłaty
     type: Typ

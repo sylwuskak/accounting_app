@@ -10,26 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_093043) do
+ActiveRecord::Schema.define(version: 2020_01_20_103442) do
 
   create_table "app_configurations", force: :cascade do |t|
-    t.date "date_from"
-    t.date "date_to"
-    t.float "base"
-    t.float "health_base"
     t.float "income_tax_threshold"
-    t.float "retirement_percent"
-    t.float "disability_percent"
-    t.float "accidental_percent"
-    t.float "illness_percent"
-    t.float "fp_percent"
-    t.float "health_percent"
-    t.float "health_deduction_percent"
     t.float "first_tax_rate"
     t.float "second_tax_rate"
     t.float "second_tax_amount"
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_app_configurations_on_user_id"
+    t.integer "year"
+    t.float "health_amount_reduction"
   end
 
   create_table "contributions", force: :cascade do |t|

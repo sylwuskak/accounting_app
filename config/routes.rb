@@ -3,10 +3,6 @@ Rails.application.routes.draw do
   
   root to: "home#index"
 
-  resources :app_configurations, only: [:create, :index, :destroy, :update] do
-    post 'copy'
-  end
-
   resources :contributions, only: [:create, :index, :destroy, :update] do
   end
 

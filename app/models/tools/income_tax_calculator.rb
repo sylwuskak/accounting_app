@@ -8,7 +8,7 @@ class Tools::IncomeTaxCalculator
     @civil_contributions = user.contributions.select{|c| c.contribution_type.downcase == "civil" && c.date >= @date.beginning_of_year && c.date <= @date}
     @health_contributions = user.contributions.select{|c| c.contribution_type.downcase == "health" && c.date >= @date.beginning_of_year && c.date <= @date}
     @tax_contributions = user.contributions.select{|c| c.contribution_type.downcase == "tax" && c.date >= @date.beginning_of_year && c.date <= @date}
-    @app_configurations = user.app_configurations.order(date_from: :desc).select{|c| c.date_from <= @date }
+    @app_configuration = AppConfiguration.where(year: @date.year).first
   end
 
   def calculate_tax
@@ -17,14 +17,13 @@ class Tools::IncomeTaxCalculator
     income = revenues_sum - costs_sum
     civil_contributions_sum = @civil_contributions.map{|c| c.amount}.sum.round(2).to_f
     tax_base = (income - civil_contributions_sum).round
-    income_tax = (@app_configurations.first.first_tax_rate * tax_base / 100).round(2).to_f
+    income_tax = (@app_configuration.first_tax_rate * tax_base / 100).round(2).to_f
     
     health_contributions_for_deduction_sum = @health_contributions.map do |hc| 
-      conf = @app_configurations.select{|c| c.date_from <= hc.date && c.date_to >= hc.date }.first 
-      (conf.health_deduction_percent * conf.health_base / 100)
+      @app_configuration.health_amount_reduction
     end.sum.round(2)
     tax_contributions_sum = @tax_contributions.map{|c| c.amount}.sum.round(2)
-    income_tax_threshold_reduction = (@app_configurations.first.income_tax_threshold * @app_configurations.first.first_tax_rate / 100 ).round(2)
+    income_tax_threshold_reduction = @app_configuration.income_tax_threshold
     advance = (income_tax - health_contributions_for_deduction_sum - tax_contributions_sum - income_tax_threshold_reduction ).round
 
     {
