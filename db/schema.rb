@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_103442) do
+ActiveRecord::Schema.define(version: 2020_01_25_123606) do
 
   create_table "app_configurations", force: :cascade do |t|
     t.float "income_tax_threshold"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_103442) do
     t.float "second_tax_amount"
     t.integer "year"
     t.float "health_amount_reduction"
+    t.float "health_amount"
   end
 
   create_table "contributions", force: :cascade do |t|

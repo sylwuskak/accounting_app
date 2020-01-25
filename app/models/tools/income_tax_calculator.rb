@@ -9,6 +9,7 @@ class Tools::IncomeTaxCalculator
     @health_contributions = user.contributions.select{|c| c.contribution_type.downcase == "health" && c.date >= @date.beginning_of_year && c.date <= @date}
     @tax_contributions = user.contributions.select{|c| c.contribution_type.downcase == "tax" && c.date >= @date.beginning_of_year && c.date <= @date}
     @app_configuration = AppConfiguration.where(year: @date.year).first
+    @last_year_app_configuration = AppConfiguration.where(year: @date.year - 1).first
   end
 
   def calculate_tax
@@ -20,7 +21,13 @@ class Tools::IncomeTaxCalculator
     income_tax = (@app_configuration.first_tax_rate * tax_base / 100).round(2).to_f
     
     health_contributions_for_deduction_sum = @health_contributions.map do |hc| 
-      @app_configuration.health_amount_reduction
+      if hc.amount == @app_configuration.health_amount 
+        @app_configuration.health_amount_reduction
+      elsif hc.amount == @last_year_app_configuration.health_amount 
+        @last_year_app_configuration.health_amount_reduction
+      else
+        0
+      end
     end.sum.round(2)
     tax_contributions_sum = @tax_contributions.map{|c| c.amount}.sum.round(2)
     income_tax_threshold_reduction = @app_configuration.income_tax_threshold

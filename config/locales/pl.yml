@@ -22,6 +22,7 @@ pl:
     date: Data
     amount: Kwota
     add_contribution: Dodaj wpłatę
+    edit_contribution: Edytuj wpłatę
     tax: Podatek
     civil: ZUS - społeczne
     health: ZUS - zdrowotne
