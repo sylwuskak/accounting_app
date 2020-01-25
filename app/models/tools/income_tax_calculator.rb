@@ -7,7 +7,7 @@ class Tools::IncomeTaxCalculator
     @costs = user.operations.select{|o| o.operation_type.downcase == "cost" && o.date >= @date.beginning_of_year && o.date <= @date} 
     @civil_contributions = user.contributions.select{|c| c.contribution_type.downcase == "civil" && c.date >= @date.beginning_of_year && c.date <= @date}
     @health_contributions = user.contributions.select{|c| c.contribution_type.downcase == "health" && c.date >= @date.beginning_of_year && c.date <= @date}
-    @tax_contributions = user.contributions.select{|c| c.contribution_type.downcase == "tax" && c.date >= @date.beginning_of_year && c.date <= @date}
+    @tax_contributions = user.contributions.select{|c| c.contribution_type.downcase == "tax" && c.date >= @date.beginning_of_year + 1.month && c.date <= @date}
     @app_configuration = AppConfiguration.where(year: @date.year).first
     @last_year_app_configuration = AppConfiguration.where(year: @date.year - 1).first
   end
