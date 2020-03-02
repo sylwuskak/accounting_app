@@ -19,7 +19,7 @@
               .form-group
                 = f.label :amount, I18n.t('operations.amount')
                 = f.text_field :amount, class: 'form-control'
-            - if operation.operation_type == 'cost'
+            - if operation.operation_type.downcase == 'cost'
               .col-md-6
                 .form-group
                   = f.label :other_cost_amount, I18n.t('operations.other_cost_amount')
@@ -32,7 +32,7 @@
             .col-md-6
               .form-group
                 = f.label :operation_subtype, I18n.t('operations.operation_subtype')
-                - if operation.operation_type == 'revenue'
+                - if operation.operation_type.downcase == 'revenue'
                   - subtypes = ['col_7', 'col_8']
                 - else
                   - subtypes = ['col_10', 'col_12', 'col_13', 'col_16']
