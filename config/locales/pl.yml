@@ -70,10 +70,12 @@ pl:
     health_contributions_for_deduction_sum: Składka zdrowotna do odliczenia
     tax_contributions_sum: Suma zaliczek
     income_tax_threshold_reduction: Kwota zmniejszająca podatek
+    all_advance: Należna zaliczka
 
   kpir:
     header: KPiR
     header_by_month: KPiR per miesiąc
+    year_summary: Podsumowanie roku
     col_1: Kol 1
     col_2: Kol 2
     col_3: Kol 3
@@ -91,6 +93,15 @@ pl:
     col_15: Kol 15
     col_16: Kol 16
     col_17: Kol 17
+  
+  year_summary:
+    first_quarter: Pierwszy kwartał
+    second_quarter: Drugi kwartał
+    third_quarter: Trzeci kwartał
+    fourth_quarter: Czwarty kwartał
+    needed_advance: Należna zaliczka
+    paid_advance: Zapłacona zaliczka
+    information: Informacje
     
   user:
     registration: Rejestracja

@@ -25,6 +25,12 @@ class KpirController < ApplicationController
     end
   end
 
+  def year_summary
+    if params[:date]
+      @needed_advances = Tools::IncomeTaxCalculator.year_tax_summary(params[:date], current_user)
+    end
+  end
+
 end
 
 

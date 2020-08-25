@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   get 'income_tax', to: 'income_tax#get_income_tax', as: 'get_income_tax'
   get 'kpir', to: 'kpir#get_kpir', as: 'get_kpir'
   get 'kpir_by_month', to: 'kpir#get_kpir_by_month', as: 'get_kpir_by_month'
+  get 'year_summary', to: 'kpir#year_summary', as: 'year_summary'
 end

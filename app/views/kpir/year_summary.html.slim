@@ -1,0 +1,114 @@
+- if @needed_advances
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('year_summary.first_quarter')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.needed_advance')
+                .col-md-6
+                  = @needed_advances[:first_quarter_advance][:needed]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.paid_advance')
+                .col-md-6
+                  = @needed_advances[:first_quarter_advance][:paid]
+                  
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('year_summary.second_quarter')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.needed_advance')
+                .col-md-6
+                  = @needed_advances[:second_quarter_advance][:needed]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.paid_advance')
+                .col-md-6
+                  = @needed_advances[:second_quarter_advance][:paid]
+  .row
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('year_summary.third_quarter')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.needed_advance')
+                .col-md-6
+                  = @needed_advances[:third_quarter_advance][:needed]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.paid_advance')
+                .col-md-6
+                  = @needed_advances[:third_quarter_advance][:paid]
+    .col-md-6
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('year_summary.fourth_quarter')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.needed_advance')
+                .col-md-6
+                  = @needed_advances[:fourth_quarter_advance][:needed]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('year_summary.paid_advance')
+                .col-md-6
+                  = @needed_advances[:fourth_quarter_advance][:paid]
+    
+  .row
+    .col-md-12
+      .panel.panel-default
+        .panel-heading
+          = I18n.t('year_summary.information')
+        .panel-body
+          ul.list-group
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.revenues_sum')
+                .col-md-6
+                  = @needed_advances[:revenues_sum]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.costs_sum')
+                .col-md-6
+                  = @needed_advances[:costs_sum]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.all_advance')
+                .col-md-6
+                  = @needed_advances[:all_advance]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.civil_contributions')
+                .col-md-6
+                  = @needed_advances[:civil_contributions_sum]
+            li.list-group-item
+              .row
+                .col-md-6.title
+                  = I18n.t('income_tax.health_contributions_for_deduction_sum')
+                .col-md-6
+                  = @needed_advances[:health_contributions_for_deduction_sum]
