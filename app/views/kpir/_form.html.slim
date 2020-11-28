@@ -4,7 +4,7 @@ form action="kpir" method="get" enctype="multipart/form-data"
       .form-group
         = label_tag 'date_from'
           = I18n.t('income_tax.date')
-        = text_field_tag :date, nil, class: 'form-control', value: params[:date]
+        = text_field_tag :date, nil, autocomplete: "off", class: 'form-control', value: params[:date]
 
     .col-md-2
       .form-group

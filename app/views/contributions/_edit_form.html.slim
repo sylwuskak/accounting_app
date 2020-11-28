@@ -9,7 +9,7 @@
             .col-md-6
               .form-group
                 = f.label :date, I18n.t('contributions.date')
-                = f.text_field :date, class: 'form-control datepicker', data: {provide: 'datepicker'}
+                = f.text_field :date, autocomplete: "off", class: 'form-control datepicker', data: {provide: 'datepicker'}
             .col-md-6
               .form-group
                 = f.label :contribution_type, I18n.t('contributions.type')

@@ -4,7 +4,7 @@ form action="income_tax" method="get" enctype="multipart/form-data"
       .form-group
         = label_tag 'date_from'
           = I18n.t('income_tax.date')
-        = text_field_tag :date, nil, class: 'form-control datepicker-months', data: {provide: 'datepicker'}, value: params[:date]
+        = text_field_tag :date, nil, autocomplete: "off", class: 'form-control datepicker-months', data: {provide: 'datepicker'}, value: params[:date]
 
     .col-md-2
       .form-group

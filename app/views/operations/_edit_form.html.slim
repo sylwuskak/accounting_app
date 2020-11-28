@@ -9,7 +9,7 @@
             .col-md-6
               .form-group
                 = f.label :date, I18n.t('operations.date')
-                = f.text_field :date, class: 'form-control datepicker', data: {provide: 'datepicker'}
+                = f.text_field :date, autocomplete: "off", class: 'form-control datepicker', data: {provide: 'datepicker'}
             .col-md-6
               .form-group
                 = f.label :operation_type, I18n.t('operations.type')
@@ -18,7 +18,7 @@
             .col-md-6
               .form-group
                 = f.label :amount, I18n.t('operations.amount')
-                = f.text_field :amount, class: 'form-control'
+                = f.text_field :amount, autocomplete: "off", class: 'form-control'
             - if operation.operation_type.downcase == 'cost'
               .col-md-6
                 .form-group
