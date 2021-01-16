@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :operations, only: [:create, :index, :destroy, :update] do
+    post 'copy', to: 'operations#copy', as: 'copy'
   end
 
   get 'income_tax', to: 'income_tax#get_income_tax', as: 'get_income_tax'

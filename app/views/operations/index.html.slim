@@ -18,8 +18,8 @@
           th width="8%" = I18n.t('operations.date')
           th width="6%" = I18n.t('operations.type')
           th width="8%" = I18n.t('operations.amount')
-          th width="50%" = I18n.t('operations.description') 
-          th width="6%"
+          th width="46%" = I18n.t('operations.description') 
+          th width="10%"
       tbody 
         - @operations.each do |operation|
           tr 
@@ -33,6 +33,8 @@
               = operation.description
             td 
               .btn-group.pull-right
+                =link_to operation_copy_path(operation), class: 'btn btn-xs custom-btn', method: :post
+                  span.glyphicon.glyphicon-duplicate
                 button.btn.btn-xs.custom-btn data-toggle="modal" data-target="#operation_edit_#{operation.id}"
                   span.glyphicon.glyphicon-pencil
                 =link_to operation_path(operation), class: 'btn btn-xs custom-btn', method: :delete, data: {confirm: I18n.t('operations.delete_confirmation_message')}
