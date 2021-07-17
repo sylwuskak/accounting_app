@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_140008) do
     t.string "contractor_address"
     t.string "operation_subtype"
     t.float "other_cost_amount"
-    t.datetime "created_at", default: "2020-01-20 08:16:33", null: false
+    t.datetime "created_at", default: "2021-07-17 07:10:57", null: false
     t.index ["user_id"], name: "index_operations_on_user_id"
   end
 

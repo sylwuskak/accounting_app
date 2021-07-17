@@ -1,25 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Accounting app Application
 
-Things you may want to cover:
+# Installation process
 
-* Ruby version
+## Install ruby with rbenv
 
-* System dependencies
+rbenv install 2.7.0
+rbenv local 2.7.0
 
-* Configuration
+## Install packages
+sudo apt-get install libsqlite3-dev libpq-dev nodejs 
 
-* Database creation
+## Install bundler
+gem install bundler
+bundle install
 
-* Database initialization
+## Setup a database
+rake db:create
+rake db:migrate
 
-* How to run the test suite
+## Run rails and have fun!
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# accounting_app
+rails s
