@@ -41,7 +41,7 @@ gem 'slim-rails', '~> 3.1.1'
 gem 'bootstrap-sass', '~> 3.3.7'
 
 gem 'active_link_to', '~> 1.0.3'
-gem 'devise', '~> 4.4.3'
+gem 'devise', '~> 4.7.1'
 
 gem 'bootstrap-datepicker-rails', '~> 1.6', '>= 1.6.1.1'
 
