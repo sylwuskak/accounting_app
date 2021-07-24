@@ -77,17 +77,17 @@ class Tools::IncomeTaxCalculator
         },
       second_quarter_advance: 
         {
-          needed: second_quarter[:all_advance] - first_quarter[:all_advance],
+          needed: second_quarter[:all_advance] - (first_quarter[:all_advance] < 0 ? 0 : first_quarter[:all_advance]),
           paid: (contributions.select{|c| c.date.month == 7}.first&.amount || 0)
         },
       third_quarter_advance: 
         {
-          needed: third_quarter[:all_advance] - second_quarter[:all_advance],
+          needed: third_quarter[:all_advance] - (second_quarter[:all_advance] < 0 ? 0 : second_quarter[:all_advance]),
           paid: (contributions.select{|c| c.date.month == 10}.first&.amount || 0)
         },
       fourth_quarter_advance: 
         {
-          needed: year_summary[:all_advance] - third_quarter[:all_advance],
+          needed: year_summary[:all_advance] - (third_quarter[:all_advance] < 0 ? 0 : third_quarter[:all_advance]),
           paid: (contributions.select{|c| c.date.month == 1}.first&.amount || 0)
         },
       revenues_sum: year_summary[:revenues_sum],
