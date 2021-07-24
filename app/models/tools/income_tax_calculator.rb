@@ -65,6 +65,11 @@ class Tools::IncomeTaxCalculator
     third_quarter = third_quarter_calculator.calculate_tax
     year_summary = fourth_quarter_calculator.calculate_tax
 
+    first_quarter_needed = first_quarter[:all_advance] < 0 ? 0 : first_quarter[:all_advance]
+    second_quarter_needed = second_quarter[:all_advance] < 0 ? 0 : second_quarter[:all_advance]
+    third_quarter_needed = third_quarter[:all_advance] < 0 ? 0 : third_quarter[:all_advance]
+    fourth_quarter_needed = year_summary[:all_advance] < 0 ? 0 : year_summary[:all_advance]
+
     date = Date.new(year.to_i)
 
     contributions = user.contributions.select{|c| c.contribution_type.downcase == "tax" && c.date >= date + 1.month && c.date <= (date.end_of_year + 1.month)}
@@ -72,22 +77,22 @@ class Tools::IncomeTaxCalculator
     {
       first_quarter_advance: 
         { 
-          needed: first_quarter[:all_advance],
+          needed: first_quarter_needed,
           paid: (contributions.select{|c| c.date.month == 4}.first&.amount || 0)
         },
       second_quarter_advance: 
         {
-          needed: second_quarter[:all_advance] - (first_quarter[:all_advance] < 0 ? 0 : first_quarter[:all_advance]),
+          needed: second_quarter_needed - first_quarter_needed,
           paid: (contributions.select{|c| c.date.month == 7}.first&.amount || 0)
         },
       third_quarter_advance: 
         {
-          needed: third_quarter[:all_advance] - (second_quarter[:all_advance] < 0 ? 0 : second_quarter[:all_advance]),
+          needed: third_quarter_needed - second_quarter_needed - first_quarter_needed,
           paid: (contributions.select{|c| c.date.month == 10}.first&.amount || 0)
         },
       fourth_quarter_advance: 
         {
-          needed: year_summary[:all_advance] - (third_quarter[:all_advance] < 0 ? 0 : third_quarter[:all_advance]),
+          needed: fourth_quarter_needed - third_quarter_needed - second_quarter_needed - first_quarter_needed,
           paid: (contributions.select{|c| c.date.month == 1}.first&.amount || 0)
         },
       revenues_sum: year_summary[:revenues_sum],
