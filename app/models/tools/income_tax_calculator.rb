@@ -60,6 +60,9 @@ class Tools::IncomeTaxCalculator
     third_quarter_calculator = self.new(year + "-10", user) 
     fourth_quarter_calculator = self.new((year.to_i + 1).to_s + "-1", user) 
     
+    first_quarter = first_quarter_calculator.calculate_tax
+    second_quarter = second_quarter_calculator.calculate_tax
+    third_quarter = third_quarter_calculator.calculate_tax
     year_summary = fourth_quarter_calculator.calculate_tax
 
     date = Date.new(year.to_i)
@@ -69,22 +72,22 @@ class Tools::IncomeTaxCalculator
     {
       first_quarter_advance: 
         { 
-          needed: first_quarter_calculator.calculate_tax[:advance],
+          needed: first_quarter[:all_advance],
           paid: (contributions.select{|c| c.date.month == 4}.first&.amount || 0)
         },
       second_quarter_advance: 
         {
-          needed: second_quarter_calculator.calculate_tax[:advance],
+          needed: second_quarter[:all_advance] - first_quarter[:all_advance],
           paid: (contributions.select{|c| c.date.month == 7}.first&.amount || 0)
         },
       third_quarter_advance: 
         {
-          needed: third_quarter_calculator.calculate_tax[:advance],
+          needed: third_quarter[:all_advance] - second_quarter[:all_advance],
           paid: (contributions.select{|c| c.date.month == 10}.first&.amount || 0)
         },
       fourth_quarter_advance: 
         {
-          needed: year_summary[:advance],
+          needed: year_summary[:all_advance] - third_quarter[:all_advance],
           paid: (contributions.select{|c| c.date.month == 1}.first&.amount || 0)
         },
       revenues_sum: year_summary[:revenues_sum],
