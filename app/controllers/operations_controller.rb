@@ -3,7 +3,7 @@ class OperationsController < ApplicationController
 
   def index
     @operations = nil
-    @operations = current_user.operations.order(date: :desc)   
+    @operations = current_user.operations.order(date: :desc).paginate(:page => params[:page], :per_page => 10)
   end
     
   def create

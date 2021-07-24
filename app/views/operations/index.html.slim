@@ -43,4 +43,5 @@
 = render "add_operation", :type => 'cost'
 = render "add_operation", :type => 'revenue'
 = render "edit_forms"
-
+.center
+  = will_paginate @operations, renderer: BootstrapPagination::Rails

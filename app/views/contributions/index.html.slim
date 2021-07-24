@@ -30,5 +30,6 @@
         
 = render "add_contribution"
 = render "edit_forms"
-
+.center
+  = will_paginate @operations, renderer: BootstrapPagination::Rails
 

@@ -2,7 +2,7 @@ class ContributionsController < ApplicationController
     before_action :authenticate_user!
 
     def index
-      @contributions = current_user.contributions.order(date: :desc)
+      @contributions = current_user.contributions.order(date: :desc).paginate(:page => params[:page], :per_page => 10)
     end
   
     def create
