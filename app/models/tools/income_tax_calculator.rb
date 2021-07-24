@@ -20,6 +20,7 @@ class Tools::IncomeTaxCalculator
     tax_base = (income - civil_contributions_sum).round
 
     tax_base_second_rate = tax_base - @app_configuration.second_tax_amount
+    tax_base_second_rate = 0 if tax_base_second_rate < 0
     tax_base_first_rate = tax_base - tax_base_second_rate
 
     income_tax = (@app_configuration.first_tax_rate * tax_base_first_rate / 100 + @app_configuration.second_tax_rate * tax_base_second_rate / 100).round(2).to_f
