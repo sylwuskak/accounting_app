@@ -18,7 +18,11 @@ class Tools::IncomeTaxCalculator
     income = revenues_sum - costs_sum
     civil_contributions_sum = @civil_contributions.map{|c| c.amount}.sum.round(2).to_f
     tax_base = (income - civil_contributions_sum).round
-    income_tax = (@app_configuration.first_tax_rate * tax_base / 100).round(2).to_f
+
+    tax_base_second_rate = tax_base - @app_configuration.second_tax_amount
+    tax_base_first_rate = tax_base - tax_base_second_rate
+
+    income_tax = (@app_configuration.first_tax_rate * tax_base_first_rate / 100 + @app_configuration.second_tax_rate * tax_base_second_rate / 100).round(2).to_f
     
     health_contributions_for_deduction_sum = @health_contributions.map do |hc| 
       if hc.amount == @app_configuration.health_amount 
