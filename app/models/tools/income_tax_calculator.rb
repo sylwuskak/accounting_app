@@ -87,12 +87,12 @@ class Tools::IncomeTaxCalculator
         },
       third_quarter_advance: 
         {
-          needed: third_quarter_needed - second_quarter_needed - first_quarter_needed,
+          needed: third_quarter_needed - second_quarter_needed,
           paid: (contributions.select{|c| c.date.month == 10}.first&.amount || 0)
         },
       fourth_quarter_advance: 
         {
-          needed: fourth_quarter_needed - third_quarter_needed - second_quarter_needed - first_quarter_needed,
+          needed: fourth_quarter_needed - third_quarter_needed,
           paid: (contributions.select{|c| c.date.month == 1}.first&.amount || 0)
         },
       revenues_sum: year_summary[:revenues_sum],
